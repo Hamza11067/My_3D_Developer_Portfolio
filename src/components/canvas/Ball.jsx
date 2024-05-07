@@ -1,4 +1,6 @@
-import React, { Suspense } from "react";
+/* eslint-disable react/no-unknown-property */
+import PropTypes from 'prop-types'; // Import PropTypes
+import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -37,6 +39,11 @@ const Ball = (props) => {
   );
 };
 
+// these proptype lines are written to avoid "proptype misssing in validation" error
+Ball.propTypes = {
+  imgUrl: PropTypes.string.isRequired, // Specify type as required
+};
+
 const BallCanvas = ({ icon }) => {
   return (
     <Canvas
@@ -52,6 +59,11 @@ const BallCanvas = ({ icon }) => {
       <Preload all />
     </Canvas>
   );
+};
+
+// these proptype lines are written to avoid "proptype misssing in validation" error
+BallCanvas.propTypes = {
+  icon: PropTypes.string.isRequired, // Specify type as boolean and required
 };
 
 export default BallCanvas;
