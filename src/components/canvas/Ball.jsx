@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
-import PropTypes from 'prop-types'; // Import PropTypes
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
@@ -17,12 +17,12 @@ const Ball = (props) => {
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
+      <ambientLight intensity={1} />
       <directionalLight position={[0, 0, 0.05]} />
       <mesh castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
-          color='#fff8eb'
+          color='#fff'
           polygonOffset
           polygonOffsetFactor={-5}
           flatShading
@@ -39,10 +39,7 @@ const Ball = (props) => {
   );
 };
 
-// these proptype lines are written to avoid "proptype misssing in validation" error
-Ball.propTypes = {
-  imgUrl: PropTypes.string.isRequired, // Specify type as required
-};
+
 
 const BallCanvas = ({ icon }) => {
   return (
@@ -61,9 +58,5 @@ const BallCanvas = ({ icon }) => {
   );
 };
 
-// these proptype lines are written to avoid "proptype misssing in validation" error
-BallCanvas.propTypes = {
-  icon: PropTypes.string.isRequired, // Specify type as boolean and required
-};
 
 export default BallCanvas;
